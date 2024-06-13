@@ -13,7 +13,7 @@ function Header() {
     }
 
   return (
-    <header className='fixed shadow-md w-full h-12 px-2 md:px-4 z-50'>
+    <header className='fixed shadow-md w-full h-12 px-2 md:px-4 z-50 bg-white'>
         {/* desktop */}
         <div className='flex items-center h-full justify-between'>
             <Link to={""}>
@@ -35,14 +35,14 @@ function Header() {
                     <div className='absolute -top-1 -right-0 text-white bg-red-500 h-4 w-4 rounded-full m-0 p-0 text-sm text-center'>0</div>
                 </div>
 
-                <div className=' text-gray-400 bg-gray-100  rounded-full '>
-                    <div className='text-2xl cursor-pointer' onClick={handleShowMenu}>
+                <div className=' text-gray-400 bg-gray-100  rounded-full'onClick={handleShowMenu}>
+                    <div className='text-2xl cursor-pointer' >
                     <FaUserCircle />
                     </div>
 
-                    {( showManu && <div className='absolute right-2 bg-white py-2 px-2 shadow drop-shadow-md'>
-                        <p className='whitespace-nowrap cursor-pointer'>New Product</p>
-                        <p className='whitespace-nowrap cursor-pointer'>Login</p>
+                    {( showManu && <div className='absolute right-2 bg-white py-2 px-2 shadow drop-shadow-md flex flex-col'>
+                        <Link to={'newProduct'} className='whitespace-nowrap cursor-pointer'>New Product</Link>
+                        <Link to={'login'} className='whitespace-nowrap cursor-pointer'>Login</Link>
                         </div>
                     )}
 
@@ -53,7 +53,7 @@ function Header() {
 
         </div>
 
-{/* 41 */}
+
 
         {/* mobile */}
 

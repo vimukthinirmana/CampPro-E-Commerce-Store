@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
      <Header/>
-     <main>
+     <main className='pt-16 bg-slate-50 min-h-[calc(100vh)]'>
         <Outlet/>
      </main>
     </div>
