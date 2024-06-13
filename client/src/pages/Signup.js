@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import loginSignupImage from '../Images/assest/user.png';
 import { BiShow, BiHide } from "react-icons/bi";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { ImagetoBase64 } from "../utility/ImagetoBase64";
 
 
@@ -49,19 +49,39 @@ function Signup() {
   
     }
 
-      const handleSubmit = (e)=>{
-        e.preventDefault();
-        const { firstName, email, password, confirmPassword } = data;
-        if (firstName && email && password && confirmPassword) {
-            if (password === confirmPassword) {
-                alert("sucssesfull");
-            }else{
-                alert("password and conferm password not equal");
-            }
-        }else{
-            alert("plase enter the requre field");
+    console.log(process.env.REACT_APP_SERVER_DOMIN)
+
+    const handleSubmit = async(e) => {
+      e.preventDefault();
+      const { firstName, email, password, confirmPassword } = data;
+      if (firstName && email && password && confirmPassword) {
+        if (password === confirmPassword) {
+      
+          const fetchData = await fetch(`${process.env.REACT_APP_SERVER_DOMIN}/signup`,{
+              method : "POST",
+              headers : {
+                "content-type" : "application/json"
+              },
+              body : JSON.stringify(data)
+            })
+  
+            const dataRes = await fetchData.json()
+      
+  
+          alert(dataRes.message);
+          // toast(dataRes.message)
+          if(dataRes.alert){
+            // navigate("/login");
+          }
+         
+        } else {
+          alert("password and confirm password not equal");
         }
+      } else {
+        alert("Please Enter required fields");
       }
+    };
+  
 
   return (
     <div className='p-3 md:p-4'>
@@ -89,7 +109,7 @@ function Signup() {
 
                 <label htmlFor="lastName">Last Name</label>
                 <input type={"text"} 
-                id="email" name="email" 
+                id="lastName" name="lastName" 
                 className="mt-1 mb-2 w-full bg-slate-200 px-2 py-1 rounded focus-within:outline-blue-300"
                 value={data.lastName}
                 onChange={handleOnChange}
