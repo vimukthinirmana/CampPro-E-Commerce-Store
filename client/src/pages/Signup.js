@@ -3,6 +3,7 @@ import loginSignupImage from '../Images/assest/user.png';
 import { BiShow, BiHide } from "react-icons/bi";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { ImagetoBase64 } from "../utility/ImagetoBase64";
+import { toast } from "react-hot-toast";
 
 
 function Signup() {
@@ -49,13 +50,14 @@ function Signup() {
   
     }
 
-    console.log(process.env.REACT_APP_SERVER_DOMIN)
+    console.log(process.env.REACT_APP_SERVER_DOMIN);
 
     const handleSubmit = async(e) => {
       e.preventDefault();
       const { firstName, email, password, confirmPassword } = data;
       if (firstName && email && password && confirmPassword) {
         if (password === confirmPassword) {
+            console.log(data)
       
           const fetchData = await fetch(`${process.env.REACT_APP_SERVER_DOMIN}/signup`,{
               method : "POST",
@@ -66,10 +68,11 @@ function Signup() {
             })
   
             const dataRes = await fetchData.json()
+            console.log(dataRes);
       
   
           alert(dataRes.message);
-          // toast(dataRes.message)
+          toast(dataRes.message)
           if(dataRes.alert){
             // navigate("/login");
           }

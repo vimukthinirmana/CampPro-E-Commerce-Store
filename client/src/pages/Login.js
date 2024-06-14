@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import loginSignupImage from '../Images/assest/user.png';
 import { BiShow, BiHide } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 function Login() {
     const [showPassword, setShowPassword] = useState(false);
@@ -28,12 +29,21 @@ function Login() {
       })
     }
 
-    const handleSubmit = (e)=>{
+    const handleSubmit = async(e)=>{
         e.preventDefault();
         const { firstName, email, password, confirmPassword } = data;
         if (firstName && email && password && confirmPassword) {
             if (password === confirmPassword) {
-                alert("sucssesfull");
+              const fetchData = await fetch(`${process.env.REACT_APP_SERVER_DOMIN}/login`,{
+                method : "POST",
+                headers : {
+                  "content-type" : "application/json"
+                },
+                body : JSON.stringify(data)
+              })
+    
+              const dataRes = await fetchData.json()
+              console.log(dataRes);
             }else{
                 alert("password and conferm password not equal");
             }
