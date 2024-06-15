@@ -13,21 +13,22 @@ function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap -mx-4">
           <div className="w-full md:w-1/3 px-4">
-            <h5 className="text-xl font-bold mb-4 flex items-center">CampPro </h5>
+            <h5 className="text-xl font-bold mb-4">CampPro </h5>
             <p className="mb-4">Your one-stop shop for all camping gear and accessories. Equip yourself for the great outdoors with CampPro!</p>
+            <h5 className="text-xl font-bold mb-4">Follow us</h5>
             <div className="flex space-x-4">
-              <a href="#" aria-label="Facebook" className="hover:text-gray-400">
-                <FaFacebook />
-              </a>
-              <a href="#" aria-label="Twitter" className="hover:text-gray-400">
-                <FaTwitter />
-              </a>
-              <a href="#" aria-label="Instagram" className="hover:text-gray-400">
-                <FaInstagram />
-              </a>
-              <a href="#" aria-label="Email" className="hover:text-gray-400">
-                <FiMail />
-              </a>
+                <a href="#" aria-label="Facebook" className="hover:text-gray-400">
+                  <FaFacebook />
+                </a>
+                <a href="#" aria-label="Twitter" className="hover:text-gray-400">
+                  <FaTwitter />
+                </a>
+                <a href="#" aria-label="Instagram" className="hover:text-gray-400">
+                  <FaInstagram />
+                </a>
+                <a href="#" aria-label="Email" className="hover:text-gray-400">
+                  <FiMail />
+                </a>
             </div>
           </div>
           <div className="w-full md:w-1/3 px-4">
