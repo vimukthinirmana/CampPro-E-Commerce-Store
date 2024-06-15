@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import toast, { Toaster } from "react-hot-toast";
-import Footer from './pages/Footer';
+import Footer from './components/Footer';
 
 
 function App() {
