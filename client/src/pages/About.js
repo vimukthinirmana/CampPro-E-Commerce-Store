@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedin, FaStar } from 'react-icons/fa';
 
 
 function About() {
 
+  useEffect(() => {
+    AOS.init({ duration: 1000 }); // Initialize AOS with a duration of 1000ms
+  }, []);
 
   const testimonials = [
     {
@@ -33,7 +38,7 @@ function About() {
   return (
     <div className="bg-gray-100 text-gray-900">
       {/* Hero Section */}
-      <div className="bg-cover bg-center h-screen" style={{ backgroundImage: "url('https://source.unsplash.com/featured/?camping')" }}>
+      <div className="bg-cover bg-center h-screen" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1631635589499-afd87d52bf64?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}>
         <div className="bg-black bg-opacity-50 h-full flex items-center justify-center">
           <div className="text-center text-white">
             <h1 className="text-5xl font-bold mb-4">About CampPro</h1>
@@ -74,9 +79,10 @@ function About() {
       {/* Team Section */}
       <div className="bg-gray-200 py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-8">Meet the Team</h2>
+          <h2 className="text-4xl font-bold text-center mb-8" data-aos="fade-up">Meet the Team</h2>
           <div className="flex flex-wrap -mx-4">
-            <div className="w-full md:w-1/3 px-4 mb-8">
+
+            <div className="w-full md:w-1/3 px-4 mb-8" data-aos="zoom-in-right">
               <div className="bg-white rounded-lg shadow-lg p-6 text-center">
                 <img src="https://images.unsplash.com/photo-1623366302587-b38b1ddaefd9?q=80&w=1325&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Team member" className="w-32 h-32 mx-auto rounded-full mb-4" />
                 <h3 className="text-xl font-bold mb-2">John Doe</h3>
@@ -89,7 +95,7 @@ function About() {
                 </div>
               </div>
             </div>
-            <div className="w-full md:w-1/3 px-4 mb-8">
+            <div className="w-full md:w-1/3 px-4 mb-8" data-aos="zoom-out">
               <div className="bg-white rounded-lg shadow-lg p-6 text-center">
                 <img src="https://img.freepik.com/free-photo/brunette-businesswoman-posing_23-2148142767.jpg?t=st=1718564705~exp=1718568305~hmac=4e1bb8cbbab7e4d9069ab4446128e73e252ece180392a4c44a0bf9b21ddc1d5d&w=740" alt="Team member" className="w-32 h-32 mx-auto rounded-full mb-4" />
                 <h3 className="text-xl font-bold mb-2">Jane Smith</h3>
@@ -102,7 +108,7 @@ function About() {
                 </div>
               </div>
             </div>
-            <div className="w-full md:w-1/3 px-4 mb-8">
+            <div className="w-full md:w-1/3 px-4 mb-8" data-aos="zoom-in-left">
               <div className="bg-white rounded-lg shadow-lg p-6 text-center">
                 <img src="https://img.freepik.com/free-photo/brunette-businesswoman-showing-her-tablet_23-2148142790.jpg?t=st=1718564404~exp=1718568004~hmac=b8ea1310b00daddae7b28f6ba12c60ca50abb073bd6ba6d8432c04e3e62b3713&w=740" alt="Team member" className="w-32 h-32 mx-auto rounded-full mb-4" />
                 <h3 className="text-xl font-bold mb-2">Emily Johnson</h3>
@@ -121,7 +127,7 @@ function About() {
 
       {/* Testimonials Section */}
       <div className="container mx-auto py-16 px-4">
-        <h2 className="text-4xl font-bold text-center mb-8">What Our Customers Say</h2>
+        <h2 className="text-4xl font-bold text-center mb-8" data-aos="fade-up">What Our Customers Say</h2>
         {/* <div className="flex flex-wrap -mx-4">
           <div className="w-full md:w-1/3 px-4 mb-8">
             <div className="bg-white rounded-lg shadow-lg p-6">
@@ -144,7 +150,7 @@ function About() {
         </div> */}
         <div className="flex flex-wrap -mx-4">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="w-full md:w-1/3 px-4 mb-8">
+            <div key={index} className="w-full md:w-1/3 px-4 mb-8" data-aos="fade-up">
               <div className="bg-white rounded-lg shadow-lg p-6 text-center hover:outline-gray-400">
                 <img src={testimonial.image} alt={testimonial.name} className="w-24 h-24 mx-auto rounded-full mb-4" />
                 <h3 className="text-xl font-bold mb-2">{testimonial.name}</h3>
