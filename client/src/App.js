@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import toast, { Toaster } from "react-hot-toast";
 import Footer from './components/Footer';
+import Contact from './pages/Contact';
 
 
 function App() {

@@ -12,11 +12,11 @@ function Footer() {
     <footer className="bg-black text-white py-8">
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap -mx-4">
-          <div className="w-full md:w-1/3 px-4">
+          <div className="w-full md:w-1/4 px-3">
             <h5 className="text-xl font-bold mb-4">CampPro </h5>
             <p className="mb-4">Your one-stop shop for all camping gear and accessories. Equip yourself for the great outdoors with CampPro!</p>
             <h5 className="text-xl font-bold mb-4">Follow us</h5>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 mb-2">
                 <a href="#" aria-label="Facebook" className="hover:text-gray-400">
                   <FaFacebook />
                 </a>
@@ -31,8 +31,8 @@ function Footer() {
                 </a>
             </div>
           </div>
-          <div className="w-full md:w-1/3 px-4">
-            <h5 className="text-xl font-bold mb-4">Quick Links</h5>
+          <div className="w-full md:w-1/4 px-3">
+            <h5 className="text-xl font-bold mb-4">QUICK LINKS</h5>
             <ul>
               <li className="mb-2"><a href="#" className="hover:text-gray-400">Home</a></li>
               <li className="mb-2"><a href="#" className="hover:text-gray-400">Product</a></li>
@@ -41,8 +41,19 @@ function Footer() {
               <li className="mb-2"><a href="#" className="hover:text-gray-400">Login</a></li>
             </ul>
           </div>
-          <div className="w-full md:w-1/3 px-4">
-            <h5 className="text-xl font-bold mb-4">Newsletter</h5>
+
+          <div className="w-full md:w-1/4 px-3">
+            <h5 className="text-xl font-bold mb-4">SUPPORT</h5>
+            <ul>
+              <li className="mb-2"><a href="#" className="hover:text-gray-400">Tech Support</a></li>
+              <li className="mb-2"><a href="#" className="hover:text-gray-400">Chat</a></li>
+              <li className="mb-2"><a href="#" className="hover:text-gray-400">F.A.Q</a></li>
+            </ul>
+          </div>
+
+
+          <div className="w-full md:w-1/4 px-3">
+            <h5 className="text-xl font-bold mb-4">NEWS LETTER</h5>
             <p className="mb-4">Sign up for our newsletter to get the latest updates and offers.</p>
             <form>
               <div className="flex">
