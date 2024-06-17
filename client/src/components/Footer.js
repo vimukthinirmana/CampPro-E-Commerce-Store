@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { FiMail } from "react-icons/fi";
 import { FaCampground } from 'react-icons/fa';
@@ -46,8 +47,8 @@ function Footer() {
             <h5 className="text-xl font-bold mb-4">SUPPORT</h5>
             <ul>
               <li className="mb-2"><a href="#" className="hover:text-gray-400">Tech Support</a></li>
-              <li className="mb-2"><a href="#" className="hover:text-gray-400">Chat</a></li>
-              <li className="mb-2"><a href="#" className="hover:text-gray-400">F.A.Q</a></li>
+              <li className="mb-2"><Link to={'chat'} className="hover:text-gray-400">Chat</Link></li>
+              <li className="mb-2"><Link to={'faq'} className="hover:text-gray-400">F.A.Q</Link></li>
             </ul>
           </div>
 

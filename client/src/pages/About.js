@@ -54,20 +54,20 @@ function About() {
           CampPro is dedicated to providing top-quality camping gear and accessories for all your outdoor adventures.
           From tents and sleeping bags to cooking equipment and hiking gear, we have everything you need to enjoy the great outdoors.
         </p>
-        <div className="flex flex-wrap -mx-4 text-center">
+        <div className="flex flex-wrap -mx-4 text-center" data-aos="fade-up">
           <div className="w-full md:w-1/3 px-4 mb-8 md:mb-0">
             <div className="p-6 bg-white rounded-lg shadow-lg">
               <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
               <p>To equip outdoor enthusiasts with the best camping gear available and foster a love for nature and adventure.</p>
             </div>
           </div>
-          <div className="w-full md:w-1/3 px-4 mb-8 md:mb-0">
+          <div className="w-full md:w-1/3 px-4 mb-8 md:mb-0" data-aos="fade-up">
             <div className="p-6 bg-white rounded-lg shadow-lg">
               <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
               <p>To be the leading provider of camping gear and accessories, inspiring people to explore and appreciate the natural world.</p>
             </div>
           </div>
-          <div className="w-full md:w-1/3 px-4 mb-8 md:mb-0">
+          <div className="w-full md:w-1/3 px-4 mb-8 md:mb-0" data-aos="fade-up">
             <div className="p-6 bg-white rounded-lg shadow-lg">
               <h3 className="text-2xl font-bold mb-4">Our Values</h3>
               <p>Quality, innovation, and sustainability in all our products, with a commitment to customer satisfaction.</p>
