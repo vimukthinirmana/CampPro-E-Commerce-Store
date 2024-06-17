@@ -35,11 +35,11 @@ function Footer() {
           <div className="w-full md:w-1/4 px-3">
             <h5 className="text-xl font-bold mb-4">QUICK LINKS</h5>
             <ul>
-              <li className="mb-2"><a href="#" className="hover:text-gray-400">Home</a></li>
-              <li className="mb-2"><a href="#" className="hover:text-gray-400">Product</a></li>
-              <li className="mb-2"><a href="#" className="hover:text-gray-400">About</a></li>
-              <li className="mb-2"><a href="#" className="hover:text-gray-400">Contact</a></li>
-              <li className="mb-2"><a href="#" className="hover:text-gray-400">Login</a></li>
+              <li className="mb-2"><Link to={""} href="#" className="hover:text-gray-400">Home</Link></li>
+              <li className="mb-2"><Link to={"product"} href="#" className="hover:text-gray-400">Product</Link></li>
+              <li className="mb-2"><Link to={"about"} href="#" className="hover:text-gray-400">About</Link></li>
+              <li className="mb-2"><Link to={"contact"} href="#" className="hover:text-gray-400">Contact</Link></li>
+              <li className="mb-2"><Link to={"login"} href="#" className="hover:text-gray-400">Login</Link></li>
             </ul>
           </div>
 
