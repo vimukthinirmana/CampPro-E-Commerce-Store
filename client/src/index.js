@@ -13,6 +13,8 @@ import NewProduct from './pages/NewProduct';
 import Signup from './pages/Signup';
 import Chat from './pages/Chat';
 import FAQ from './pages/FAQ';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsAndConditions from './pages/TermsAndConditions';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,6 +28,8 @@ const router = createBrowserRouter(
         <Route path='signup' element={<Signup/>}/>
         <Route path='chat' element={<Chat/>}/>
         <Route path='faq' element={<FAQ/>}/>
+        <Route path='privacypolicy' element={<PrivacyPolicy/>}/>
+        <Route path='termsandconditions' element={<TermsAndConditions/>}/>
     </Route>
   )
 );

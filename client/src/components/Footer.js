@@ -44,11 +44,12 @@ function Footer() {
           </div>
 
           <div className="w-full md:w-1/4 px-3">
-            <h5 className="text-xl font-bold mb-4">SUPPORT</h5>
+            <h5 className="text-xl font-bold mb-4">INFORMATION</h5>
             <ul>
-              <li className="mb-2"><a href="#" className="hover:text-gray-400">Tech Support</a></li>
               <li className="mb-2"><Link to={'chat'} className="hover:text-gray-400">Chat</Link></li>
               <li className="mb-2"><Link to={'faq'} className="hover:text-gray-400">F.A.Q</Link></li>
+              <li className="mb-2"><Link to={'privacypolicy'} className="hover:text-gray-400">Privacy policy</Link></li>
+              <li className="mb-2"><Link to={'termsandconditions'} className="hover:text-gray-400">Terms & conditions</Link></li>
             </ul>
           </div>
 
