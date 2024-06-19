@@ -15,6 +15,8 @@ import Chat from './pages/Chat';
 import FAQ from './pages/FAQ';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions';
+import AdminDashboard from './pages/AdminDashboard';
+import UserDashboard from './pages/UserDashboard';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,6 +27,8 @@ const router = createBrowserRouter(
         <Route path='contact' element={<Contact/>}/>
         <Route path='login' element={<Login/>}/>
         <Route path='newProduct' element={<NewProduct/>}/>
+        <Route path='admindashboard' element={<AdminDashboard/>}/>
+        <Route path='userdashboard' element={<UserDashboard/>}/>
         <Route path='signup' element={<Signup/>}/>
         <Route path='chat' element={<Chat/>}/>
         <Route path='faq' element={<FAQ/>}/>
