@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { FaUser, FaShoppingCart, FaCog, FaBars } from 'react-icons/fa';
+import { FaUser, FaShoppingCart, FaCog, FaBars, FaUpload } from 'react-icons/fa';
 
-function UserDashboard() {
-
+const UserDashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [profileImage, setProfileImage] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -13,7 +14,17 @@ function UserDashboard() {
     setIsSidebarOpen(false);
   };
 
-
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setProfileImage(file);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreviewImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <div className="flex h-screen bg-gray-100">
@@ -56,6 +67,27 @@ function UserDashboard() {
           <div id="profile" className="mb-8">
             <h2 className="text-3xl font-bold mb-4">Profile</h2>
             <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="flex items-center space-x-4 mb-4">
+                {previewImage ? (
+                  <img src={previewImage} alt="Profile" className="w-20 h-20 rounded-full" />
+                ) : (
+                  <FaUser className="w-20 h-20 text-gray-500" />
+                )}
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  className="hidden"
+                  id="profile-image-upload"
+                />
+                <label
+                  htmlFor="profile-image-upload"
+                  className="cursor-pointer text-blue-500 hover:text-blue-700 flex items-center"
+                >
+                  <FaUpload className="mr-2" />
+                  Upload Image
+                </label>
+              </div>
               <p className="text-gray-700">Name: John Doe</p>
               <p className="text-gray-700">Email: john.doe@example.com</p>
             </div>
@@ -103,6 +135,6 @@ function UserDashboard() {
       </div>
     </div>
   );
-}
+};
 
 export default UserDashboard;

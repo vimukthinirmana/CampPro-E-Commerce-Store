@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 // import { FaUser } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
-// import { BsCartFill } from "react-icons/bs";
 import { HiOutlineShoppingCart } from "react-icons/hi2";
+import { GiCampingTent } from "react-icons/gi";
 
 function Header() {
 
@@ -17,8 +17,9 @@ function Header() {
         {/* desktop */}
         <div className='flex items-center h-full justify-between'>
             <Link to={""}>
-            <div className='items-center justify-centerh-10'>
-                <p className='text-black font-sans font-bold h-full'>CampPro</p>
+            <div className='flex items-center justify-center h-10'>  
+                <GiCampingTent className='h-full w-auto'/>             
+                <p className='text-black font-sans font-bold ml-2 '>| CampPro</p>
             </div>
             </Link>
 

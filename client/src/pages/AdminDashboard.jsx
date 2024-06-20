@@ -17,7 +17,7 @@ function AdminDashboard() {
   return (
     <div className="flex h-screen bg-gray-100 ">
       {/* Sidebar */}
-      <div className={`fixed z-30 h-3/4 inset-y-0 left-0 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out bg-white shadow-md w-64`}>
+      <div className={`pt-10 fixed z-30 h-3/4 inset-y-0 left-0 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out bg-white shadow-md w-64`}>
         <div className="px-8 py-4">
           <h2 className="text-2xl font-bold mb-8">Admin Dashboard</h2>
           <span className=''></span>

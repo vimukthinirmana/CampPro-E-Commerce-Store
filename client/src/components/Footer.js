@@ -2,9 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { FiMail } from "react-icons/fi";
-import { FaCampground } from 'react-icons/fa';
-
-
 
 
 
