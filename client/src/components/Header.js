@@ -17,7 +17,7 @@ function Header() {
         {/* desktop */}
         <div className='flex items-center h-full justify-between'>
             <Link to={""}>
-            <div className='flex items-center justify-center h-10'>  
+            <div className='flex items-center justify-center h-10 select-none'>  
                 <GiCampingTent className='h-full w-auto'/>             
                 <p className='text-black font-sans font-bold ml-2 '>| CampPro</p>
             </div>

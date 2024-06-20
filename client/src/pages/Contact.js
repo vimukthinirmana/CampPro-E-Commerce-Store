@@ -1,11 +1,16 @@
 import React from 'react';
 import { FaFacebookF, FaTwitter, FaInstagram, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
+import { GiCampingTent } from "react-icons/gi";
 
 
 function Contact() {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center py-12">
       <div className="bg-white rounded-lg shadow-lg p-8 max-w-4xl w-full">
+      <div className="flex items-center justify-center mb-4 h-20 select-none text-gray-500">
+            <GiCampingTent className='h-full w-auto' />
+            <h5 className="text-4xl font-bold ml-2">| CampPro</h5>
+          </div>
         <h2 className="text-3xl font-bold mb-8 text-center">Contact Us</h2>
         <div className="flex flex-wrap -mx-4">
           <div className="w-full md:w-1/2 px-4 mb-8 md:mb-0">

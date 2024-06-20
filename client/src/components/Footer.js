@@ -11,8 +11,10 @@ function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap -mx-4">
           <div className="w-full md:w-1/4 px-3">
-            <GiCampingTent className='h-6 w-6'/> 
-            <h5 className="text-xl font-bold mb-4 ml-2">| CampPro </h5>
+          <div className="flex items-center mb-2 h-10 select-none">
+            <GiCampingTent className='h-full w-auto' />
+            <h5 className="text-xl font-bold ml-2">| CampPro</h5>
+          </div>
             <p className="mb-4">Your one-stop shop for all camping gear and accessories. Equip yourself for the great outdoors with CampPro!</p>
             <h5 className="text-xl font-bold mb-4">Follow us</h5>
             <div className="flex space-x-4 mb-2">

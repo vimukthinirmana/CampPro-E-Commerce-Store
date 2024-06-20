@@ -11,7 +11,7 @@ function TermsAndConditions() {
 
   return (
     <div className="max-w-4xl mx-auto py-12 px-6">
-      <div className="text-center mb-12">
+      <div className="text-center mb-12 select-none">
         <h1 className="text-6xl font-bold text-gray-500">Terms & Conditions</h1>
         <p className="text-gray-500 mt-2">Updated on January 1, 2024</p>
       </div>

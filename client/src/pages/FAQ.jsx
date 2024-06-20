@@ -83,7 +83,7 @@ function FAQ() {
 
   return (
     <div className="max-w-3xl mx-auto py-12 px-4">
-      <h1 className="text-4xl font-bold text-center mb-8">Frequently Asked Questions</h1>
+      <h1 className="text-6xl font-bold text-center mb-10 select-none text-gray-500">F.A.Q</h1>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
           <div key={index} className="bg-white shadow-md rounded-lg p-4">

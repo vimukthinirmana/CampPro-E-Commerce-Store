@@ -11,7 +11,7 @@ function PrivacyPolicy() {
 
   return (
     <div className="max-w-4xl mx-auto py-12 px-6">
-      <div className="text-center mb-12">
+      <div className="text-center mb-12 select-none">
         <h1 className="text-7xl font-bold text-gray-500 mb-2">Privacy Policy</h1>
         <p className="text-gray-500 mt-2">Updated on January 1, 2024</p>
       </div>
