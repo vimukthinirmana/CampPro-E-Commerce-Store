@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { FiMail } from "react-icons/fi";
-import { GiCampingTent } from "react-icons/gi";
+
 
 
 function Footer() {
@@ -12,7 +12,7 @@ function Footer() {
         <div className="flex flex-wrap -mx-4">
           <div className="w-full md:w-1/4 px-3">
           <div className="flex items-center mb-2 h-10 select-none">
-            <GiCampingTent className='h-full w-auto' />
+        
             <h5 className="text-xl font-bold ml-2">| CampPro</h5>
           </div>
             <p className="mb-4">Your one-stop shop for all camping gear and accessories. Equip yourself for the great outdoors with CampPro!</p>
@@ -43,15 +43,7 @@ function Footer() {
             </ul>
           </div>
 
-          <div className="w-full md:w-1/4 px-3">
-            <h5 className="text-xl font-bold mb-4">INFORMATION</h5>
-            <ul>
-              <li className="mb-2"><Link to={'chat'} className="hover:text-gray-400">Chat</Link></li>
-              <li className="mb-2"><Link to={'faq'} className="hover:text-gray-400">F.A.Q</Link></li>
-              <li className="mb-2"><Link to={'privacypolicy'} className="hover:text-gray-400">Privacy policy</Link></li>
-              <li className="mb-2"><Link to={'termsandconditions'} className="hover:text-gray-400">Terms & conditions</Link></li>
-            </ul>
-          </div>
+
 
 
           <div className="w-full md:w-1/4 px-3">

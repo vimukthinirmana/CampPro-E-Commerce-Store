@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 // import { FaUser } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
 import { HiOutlineShoppingCart } from "react-icons/hi2";
-import { GiCampingTent } from "react-icons/gi";
+// import { GiCampingTent } from "react-icons/gi";
 
 function Header() {
 
@@ -18,7 +18,7 @@ function Header() {
         <div className='flex items-center h-full justify-between'>
             <Link to={""}>
             <div className='flex items-center justify-center h-10 select-none'>  
-                <GiCampingTent className='h-full w-auto'/>             
+                {/* <GiCampingTent className='h-full w-auto'/>              */}
                 <p className='text-black font-sans font-bold ml-2 '>| CampPro</p>
             </div>
             </Link>
