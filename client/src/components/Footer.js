@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { FiMail } from "react-icons/fi";
-
+import { GiCampingTent } from "react-icons/gi";
 
 
 function Footer() {
@@ -10,9 +10,9 @@ function Footer() {
     <footer className="bg-black text-white py-8">
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap -mx-4">
-          <div className="w-full md:w-1/4 px-3">
+          <div className="w-full md:w-1/3 px-3">
           <div className="flex items-center mb-2 h-10 select-none">
-        
+            <GiCampingTent className='h-full w-auto' />
             <h5 className="text-xl font-bold ml-2">| CampPro</h5>
           </div>
             <p className="mb-4">Your one-stop shop for all camping gear and accessories. Equip yourself for the great outdoors with CampPro!</p>
@@ -32,7 +32,7 @@ function Footer() {
                 </a>
             </div>
           </div>
-          <div className="w-full md:w-1/4 px-3">
+          <div className="w-full md:w-1/3 px-3">
             <h5 className="text-xl font-bold mb-4">QUICK LINKS</h5>
             <ul>
               <li className="mb-2"><Link to={""} href="#" className="hover:text-gray-400">Home</Link></li>
@@ -46,7 +46,7 @@ function Footer() {
 
 
 
-          <div className="w-full md:w-1/4 px-3">
+          <div className="w-full md:w-1/3 px-3">
             <h5 className="text-xl font-bold mb-4">NEWS LETTER</h5>
             <p className="mb-4">Sign up for our newsletter to get the latest updates and offers.</p>
             <form>
@@ -71,7 +71,7 @@ function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
 
 export default Footer;
