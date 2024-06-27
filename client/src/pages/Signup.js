@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import loginSignupImage from '../Images/assest/user.png';
 import { BiShow, BiHide } from "react-icons/bi";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { ImagetoBase64 } from "../utility/ImagetoBase64";
 import { toast } from "react-hot-toast";
 
@@ -48,7 +48,7 @@ function Signup() {
       })
 
   }
-console.log(process.env.REACT_APP_SERVER_DOMIN)
+  console.log(process.env.REACT_APP_SERVER_DOMIN)
 
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -56,38 +56,30 @@ console.log(process.env.REACT_APP_SERVER_DOMIN)
     if (firstName && email && password && confirmPassword) {
       if (password === confirmPassword) {
     
-        try {
-          const response = await fetch(`${process.env.REACT_APP_SERVER_DOMIN}/signup`, {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json"
-              },
-              body: JSON.stringify(data)
-          });
+        const fetchData = await fetch(`${process.env.REACT_APP_SERVER_DOMIN}/signup`,{
+            method : "POST",
+            headers : {
+              "content-type" : "application/json"
+            },
+            body : JSON.stringify(data)
+          })
 
-          if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-          }
+          const dataRes = await fetchData.json()
+    
 
-          const dataRes = await response.json();
-          toast(dataRes.message);
-          if (dataRes.alert) {
-              navigate("/login");
-          }
-      } catch (error) {
-          console.error("Error:", error);
-          toast("An error occurred. Please try again.");
-      }
-            } else {
-          alert("password and confirm password not equal");
+        // alert(dataRes.message);
+        toast(dataRes.message)
+        if(dataRes.alert){
+          navigate("/login");
         }
+       
       } else {
-        alert("Please Enter required fields");
+        alert("password and confirm password not equal");
       }
-
-
-    };
-  
+    } else {
+      alert("Please Enter required fields");
+    }
+  };
 
   return (
     <div className="p-3 md:p-4">

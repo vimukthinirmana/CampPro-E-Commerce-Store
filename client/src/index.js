@@ -14,6 +14,8 @@ import TermsAndConditions from './pages/TermsAndConditions';
 import AdminDashboard from './pages/AdminDashboard';
 import UserDashboard from './pages/UserDashboard';
 import About from './pages/About';
+import { store } from './redux/index'; 
+import { Provider} from 'react-redux';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -34,7 +36,9 @@ const router = createBrowserRouter(
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <RouterProvider router={router}/>
+  <Provider store={store}>
+    <RouterProvider router={router}/>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

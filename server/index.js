@@ -13,12 +13,15 @@ app.use(cors());
 app.use(express.json({limit:"10mb"}));
 
 const PORT = process.env.PORT || 8080;
-//monodb connection
-console.log(process.env.MONGODB_URL)
-mongoose.set('strictQuery',false);
-mongoose.connect(process.env.MONGODB_URL)
-.then(()=>console.log("Connect to Databs"))
-.catch((err) => console.log(err));
+
+//mongodb connection
+mongoose.set("strictQuery", false);
+mongoose
+  .connect(process.env.MONGODB_URL)
+  .then(() => console.log("Connect to Databse"))
+  .catch((err) => console.log(err));
+
+
 
 //schema
 const userSchema = mongoose.Schema({
@@ -43,22 +46,29 @@ app.get("/", (req, res) => {
     res.send("Server is running");
   });
 
-app.post("/signup",(req,res)=>{
-    console.log(req.body)
-    const { email } = req.body;
-    userModel.findOne({ email: email }, (err, result) => {
-        // console.log(result);
-        console.log(err);
-        if (result) {
-          res.send({ message: "Email id is already register", alert: false });
-        } else {
-          const data = userModel(req.body);
-          const save = data.save();
-          res.send({ message: "Successfully sign up", alert: true });
-        }
-      });
 
-})
+
+// signup
+
+app.post("/signup", async (req, res) => {
+  // console.log(req.body);
+  const { email } = req.body;
+
+  userModel.findOne({ email: email }, (err, result) => {
+    // console.log(result);
+    console.log(err);
+    if (result) {
+      res.send({ message: "Email id is already register", alert: false });
+    } else {
+      const data = userModel(req.body);
+      const save = data.save();
+      res.send({ message: "Successfully sign up", alert: true });
+    }
+  });
+});
+
+
+
 
 //api login
 app.post("/login", (req, res) => {
