@@ -25,6 +25,8 @@ function Header() {
         toast("Logout successfully");
     };
 
+    const cartItemNumber = useSelector((state) => state.product.cartItem)
+
     return (
         <header className='fixed shadow-md w-full h-12 px-2 md:px-4 z-50 bg-white'>
             {/* desktop */}
@@ -39,15 +41,17 @@ function Header() {
                 <div className='flex items-center gap-4 md:gap-7'>
                     <nav className='flex gap-4 md:gap-6 text-base md:text-lg'>
                         <Link to={""}>Home</Link>
-                        <Link to={"product"}>Product</Link>
+                        <Link to={"product/667e90db27f5019997752d41"}>Product</Link>
                         <Link to={"about"}>About</Link>
                         <Link to={"contact"}>Contact</Link>
                     </nav>
 
                     <div className='text-2xl text-gray-400 relative'>
                         <Link to={"cart"}>
-                        <HiOutlineShoppingCart />
-                        <div className='absolute -top-1 -right-0 text-white bg-red-500 h-4 w-4 rounded-full m-0 p-0 text-sm text-center'>0</div>
+                            <HiOutlineShoppingCart />
+                            <div className='absolute -top-1 -right-0 text-white bg-red-500 h-4 w-4 rounded-full m-0 p-0 text-sm text-center'>
+                                {cartItemNumber.length}
+                            </div>
                         </Link>
                     </div>
 
@@ -92,6 +96,25 @@ function Header() {
                                     Login
                                 </Link>
                             )}
+
+                            <nav className="text-base md:text-lg flex flex-col md:hidden">
+                                <Link to={""} className="px-2 py-1">
+                                    Home
+                                </Link>
+                                <Link
+                                    to={"product/667e90db27f5019997752d41"}
+                                    className="px-2 py-1"
+                                >
+                                    Product
+                                </Link>
+                                <Link to={"about"} className="px-2 py-1">
+                                    About
+                                </Link>
+                                <Link to={"contact"} className="px-2 py-1">
+                                    Contact
+                                </Link>
+                            </nav>
+
                         </div>
                         )}
 

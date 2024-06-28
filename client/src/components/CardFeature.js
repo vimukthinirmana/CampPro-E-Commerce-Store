@@ -21,7 +21,7 @@ const CardFeature = ({ image, name, price, category, loading, id }) => {
       {image ? (
         <>
           <Link
-            to={`/menu/${id}`}
+            to={`/product/${id}`}
             onClick={() => window.scrollTo({ top: "0", behavior: "smooth" })}
           >
             <div className="h-28 flex flex-col justify-center items-center">
