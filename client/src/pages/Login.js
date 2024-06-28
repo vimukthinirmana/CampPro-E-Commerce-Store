@@ -19,7 +19,7 @@ function Login() {
     });
     const navigate = useNavigate()  
     const userData = useSelector(state => state)
-    console.log(userData.user)
+   
 
     const dispatch = useDispatch()
 
@@ -52,6 +52,7 @@ function Login() {
         const dataRes = await fetchData.json()
         console.log(dataRes)
         
+        
         toast(dataRes.message)
         
         if(dataRes.alert){
@@ -60,6 +61,8 @@ function Login() {
             navigate("/");
           }, 1000);
         }
+
+        console.log(userData)
   
         
       }
