@@ -16,6 +16,7 @@ import UserDashboard from './pages/UserDashboard';
 import About from './pages/About';
 import { store } from './redux/index'; 
 import { Provider} from 'react-redux';
+import Cart from './pages/Cart';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,6 +31,7 @@ const router = createBrowserRouter(
         <Route path='userdashboard' element={<UserDashboard/>}/>
         <Route path='signup' element={<Signup/>}/>
         <Route path='termsandconditions' element={<TermsAndConditions/>}/>
+        <Route path='cart' element={<Cart/>}/>
     </Route>
   )
 );
