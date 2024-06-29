@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
-import { FaUser, FaShoppingCart, FaCog, FaBars, FaUpload } from 'react-icons/fa';
+import { FaUserCircle, FaShoppingCart, FaCog, FaBars, FaUpload ,FaUser} from 'react-icons/fa';
+import {  useSelector } from "react-redux";
 
 const UserDashboard = () => {
+
+  const userData = useSelector((state) => state.user);
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [profileImage, setProfileImage] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
@@ -61,18 +65,23 @@ const UserDashboard = () => {
 
         {/* Content */}
         <main className="flex-1 p-8 overflow-y-auto">
-          <h1 className="text-4xl font-bold mb-8">Welcome, User</h1>
+          <h1 className="text-4xl font-bold mb-8">Welcome, {userData.firstName}</h1>
 
           {/* Profile Section */}
           <div id="profile" className="mb-8">
             <h2 className="text-3xl font-bold mb-4">Profile</h2>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center space-x-4 mb-4">
-                {previewImage ? (
+              {userData.image ? (
+                                <img src={userData.image} className="w-20 h-20 rounded-full" />
+                            ) : (
+                                <FaUserCircle className='w-20 h-20' />
+                            )}
+                {/* {previewImage ? (
                   <img src={previewImage} alt="Profile" className="w-20 h-20 rounded-full" />
                 ) : (
                   <FaUser className="w-20 h-20 text-gray-500" />
-                )}
+                )} */}
                 <input
                   type="file"
                   accept="image/*"
@@ -85,11 +94,12 @@ const UserDashboard = () => {
                   className="cursor-pointer text-blue-500 hover:text-blue-700 flex items-center"
                 >
                   <FaUpload className="mr-2" />
+
                   Upload Image
                 </label>
               </div>
-              <p className="text-gray-700">Name: John Doe</p>
-              <p className="text-gray-700">Email: john.doe@example.com</p>
+              <p className="text-gray-700">Name: {userData.firstName}</p>
+              <p className="text-gray-700">Email: {userData.email}</p>
             </div>
           </div>
 

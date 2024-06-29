@@ -1,17 +1,52 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaUsers, FaBox, FaChartLine, FaCog, FaBars, FaSignOutAlt, Famu } from 'react-icons/fa';
+import axios from 'axios';
+import {  useSelector } from "react-redux";
+import { Link } from 'react-router-dom';
 
 function AdminDashboard() {
 
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const userData = useSelector((state) => state.user);
 
-    const toggleSidebar = () => {
-      setIsSidebarOpen(!isSidebarOpen);
-    };
-  
-    const closeSidebar = () => {
-      setIsSidebarOpen(false);
-    };
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
+
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+
+
+  const fetchProducts = async () => {
+    // try {
+    //   const response = await fetch('/product'); 
+    //   setProducts(response.data);
+    // } catch (error) {
+    //   console.error('Error fetching products:', error);
+    // }
+  };
+
+  const handleDelete = async (productId) => {
+    // try {
+    //   await axios.delete(`/product/${productId}`); 
+    //   fetchProducts(); // Refresh the product list
+    // } catch (error) {
+    //   console.error('Error deleting product:', error);
+    // }
+  };
+
+
+
 
 
   return (
@@ -58,24 +93,24 @@ function AdminDashboard() {
 
         {/* Content */}
         <main className="flex-1 p-8 overflow-y-auto">
-          <h1 className="text-4xl font-bold mb-8">Welcome, Admin</h1>
+          <h1 className="text-4xl font-bold mb-8">Welcome, {userData.firstName} {userData.lastName}</h1>
 
           {/* Stats Section */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
             <div className="bg-white p-6 rounded-lg shadow-md">
               <FaUsers className="text-blue-500 w-12 h-12 mb-4" />
               <h2 className="text-2xl font-bold">Users</h2>
-              <p className="text-gray-600">1,234</p>
+              <p className="text-gray-600">3</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <FaBox className="text-green-500 w-12 h-12 mb-4" />
               <h2 className="text-2xl font-bold">Products</h2>
-              <p className="text-gray-600">567</p>
+              <p className="text-gray-600">19</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <FaChartLine className="text-red-500 w-12 h-12 mb-4" />
               <h2 className="text-2xl font-bold">Sales</h2>
-              <p className="text-gray-600">$12,345</p>
+              <p className="text-gray-600">Rs.12,345</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <FaCog className="text-yellow-500 w-12 h-12 mb-4" />
@@ -91,22 +126,14 @@ function AdminDashboard() {
               <table className="w-full text-left">
                 <thead>
                   <tr>
-                    <th className="py-2 px-4 border-b">Name</th>
+                    <th className="py-2 px-4 border-b">Frist Name</th>
+                    <th className="py-2 px-4 border-b">Last Name</th>
                     <th className="py-2 px-4 border-b">Email</th>
-                    <th className="py-2 px-4 border-b">Role</th>
+                    <th className="py-2 px-4 border-b">password</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td className="py-2 px-4 border-b">John Doe</td>
-                    <td className="py-2 px-4 border-b">john@example.com</td>
-                    <td className="py-2 px-4 border-b">Admin</td>
-                  </tr>
-                  <tr>
-                    <td className="py-2 px-4 border-b">Jane Smith</td>
-                    <td className="py-2 px-4 border-b">jane@example.com</td>
-                    <td className="py-2 px-4 border-b">User</td>
-                  </tr>
+                  
                 </tbody>
               </table>
             </div>
@@ -120,21 +147,35 @@ function AdminDashboard() {
                 <thead>
                   <tr>
                     <th className="py-2 px-4 border-b">Name</th>
+                    <th className="py-2 px-4 border-b">Image</th>
                     <th className="py-2 px-4 border-b">Category</th>
                     <th className="py-2 px-4 border-b">Price</th>
+                    <th className="py-2 px-4 border-b">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td className="py-2 px-4 border-b">Tent</td>
-                    <td className="py-2 px-4 border-b">Camping Gear</td>
-                    <td className="py-2 px-4 border-b">$100</td>
-                  </tr>
-                  <tr>
-                    <td className="py-2 px-4 border-b">Backpack</td>
-                    <td className="py-2 px-4 border-b">Accessories</td>
-                    <td className="py-2 px-4 border-b">$50</td>
-                  </tr>
+                  {products.map((product) => (
+                    <tr key={product._id}>
+
+                      <td className="py-2 px-4 border-b">{product.name}</td>
+                      <td className="py-2 px-4 border-b">
+                        <img src={product.image} alt={product.name} className="w-16 h-16 object-cover rounded-md" />
+                      </td>
+                      <td className="py-2 px-4 border-b">{product.category}</td>
+                      <td className="py-2 px-4 border-b">${product.price}</td>
+                      <td className="py-2 px-4 border-b">
+                        <Link to={`/admin/updateProduct/${product._id}`} className="text-blue-500 mr-4">
+                          Update
+                        </Link>
+                        <button
+                          onClick={() => handleDelete(product._id)}
+                          className="text-red-500"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>

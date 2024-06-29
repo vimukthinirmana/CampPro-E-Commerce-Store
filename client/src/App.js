@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import { useEffect } from "react";
 import { setDataProduct } from "./redux/productSlide";
 import { useDispatch, useSelector } from "react-redux";
+import Hero from './components/Hero';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
     <Toaster />
     <div>
       <Header />
+      {/* <Hero/> */}
       <main className="pt-12 bg-slate-100 min-h-[calc(100vh)]">
         <Outlet />
       </main>

@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
-// const Stripe = require('stripe')
+const Stripe = require('stripe')
 
 // camppro-store
 // E18FJSqustijTVJY
@@ -188,6 +188,97 @@ res.send(JSON.stringify(data))
 
 
 
+
+// Fetch all products
+app.get("/product", async (req, res) => {
+  try {
+    const data = await productModel.find({});
+    res.send(JSON.stringify(data));
+  } catch (error) {
+    res.status(500).send({ message: "Error fetching products" });
+  }
+});
+
+// Update a product
+// app.put("/product/:id", async (req, res) => {
+//   const { name, category, image, price, description } = req.body;
+//   const updatedProduct = { name, category, image, price, description };
+
+//   try {
+//     const product = await productModel.findByIdAndUpdate(req.params.id, updatedProduct, { new: true });
+//     if (!product) return res.status(404).send({ message: "Product not found" });
+//     res.json(product);
+//   } catch (error) {
+//     res.status(500).send({ message: "Error updating product" });
+//   }
+// });
+
+
+
+//  Delete a product
+// app.delete("/product/:id", async (req, res) => {
+//   try {
+//     const product = await productModel.findByIdAndDelete(req.params.id);
+//     if (!product) return res.status(404).send({ message: "Product not found" });
+//     res.json({ message: "Product deleted successfully" });
+//   } catch (error) {
+//     res.status(500).send({ message: "Error deleting product" });
+//   }
+// });
+
+
+
+
+
+/*****payment getWay */
+console.log(process.env.STRIPE_SECRET_KEY)
+
+
+const stripe  = new Stripe(process.env.STRIPE_SECRET_KEY)
+
+app.post("/create-checkout-session",async(req,res)=>{
+
+     try{
+      const params = {
+          submit_type : 'pay',
+          mode : "payment",
+          payment_method_types : ['card'],
+          billing_address_collection : "auto",
+          shipping_options : [{shipping_rate : "shr_1PWxzTRxr6bwP0Xgg3wxK1tO"}],
+
+          line_items : req.body.map((item)=>{
+            return{
+              price_data : {
+                currency : "lkr",
+                product_data : {
+                  name : item.name,
+                  // images : [item.image]
+                },
+                unit_amount : item.price * 100,
+              },
+              adjustable_quantity : {
+                enabled : true,
+                minimum : 1,
+              },
+              quantity : item.qty
+            }
+          }),
+
+          success_url : `${process.env.FRONTEND_URL}/success`,
+          cancel_url : `${process.env.FRONTEND_URL}/cancel`,
+
+      }
+
+      
+      const session = await stripe.checkout.sessions.create(params)
+      // console.log(session)
+      res.status(200).json(session.id)
+     }
+     catch (err){
+        res.status(err.statusCode || 500).json(err.message)
+     }
+
+});
 
 
 
