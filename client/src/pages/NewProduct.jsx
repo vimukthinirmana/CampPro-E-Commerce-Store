@@ -9,6 +9,7 @@ function NewProduct() {
     category: "",
     image: "",
     price: "",
+    qty:"",
     description: ""
   })
 
@@ -40,9 +41,9 @@ function NewProduct() {
     e.preventDefault()
     console.log(data)
 
-    const { name, image, category, price } = data
+    const { name, image, category, price ,qty ,description } = data
 
-    if (name && image && category && price) {
+    if (name && image && category && price && qty && description) {
       const fetchData = await fetch(`${process.env.REACT_APP_SERVER_DOMIN}/uploadProduct`, {
         method: "POST",
         headers: {
@@ -62,6 +63,7 @@ function NewProduct() {
           category: "",
           image: "",
           price: "",
+          qty:"",
           description: ""
         }
       })
@@ -107,6 +109,9 @@ function NewProduct() {
 
         <label htmlFor='price' className='my-1'>Price</label>
         <input type={"text"} className='bg-slate-200 p-1 my-1' name='price' onChange={handleOnChange} value={data.price} />
+
+        <label htmlFor='qty' className='my-1'>Quantity</label>
+        <input type={"text"} className='bg-slate-200 p-1 my-1' name='qty' onChange={handleOnChange} value={data.qty} />
 
         <label htmlFor='description'>Description</label>
         <textarea rows={2} value={data.description} className='bg-slate-200 p-1 my-1 resize-none' name='description' onChange={handleOnChange}></textarea>

@@ -68,8 +68,9 @@ function Signup() {
 
 
         // alert(dataRes.message);
-        toast(dataRes.message)
+        // toast(dataRes.message)
         if (dataRes.alert) {
+          toast.success("Signup successfully");
           navigate("/login");
         }
 
